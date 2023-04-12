@@ -1,4 +1,4 @@
-function [ phantom ] = newPhantomGene(n_vessels, r_vessels, m_vessels )
+function [ phantom ] = PhantomGene(n_vessels, r_vessels, m_vessels )
 %NEWPHANTOMGENE creates an IndexedPhantom object, with vessels, for QRM phantom CT Simulation.
 %
 %   newPhantomGene creates an IndexedPhantom object with equidistance
