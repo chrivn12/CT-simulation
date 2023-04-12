@@ -50,7 +50,7 @@ for m = 2:length(modes)
         line1_sheet1 =  {'Patient Size', 'Energy (kVp)', 'Exposure (mR)','Mean (HU)', 'STD (HU)' , 'Water(%)' , 'Lipid(%)','Protein(%)'};
         line1_sheet1 = horzcat(line1_sheet1);
         xlswrite(xlspath, line1_sheet1, xlsSESheet);
-        load('phantom.mat')
+        load('phantom_with_marrow.mat')
 
         for  k = 1:length(groupEn)
             energy = groupEn(k);
