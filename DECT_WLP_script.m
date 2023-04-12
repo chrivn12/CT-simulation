@@ -1,4 +1,4 @@
-C%% Increase in FAI is because of the loss of lipid content rather than water accumulation.
+%% Increase in FAI is because of the loss of lipid content rather than water accumulation.
 % Initialize trials and modes
 modes = {'calibration', 'validation'};
 kvps_sizes_modes = {'energy', 'patient_size'};
@@ -50,7 +50,7 @@ for m = 2:length(modes)
         line1_sheet1 =  {'Patient Size', 'Energy (kVp)', 'Exposure (mR)','Mean (HU)', 'STD (HU)' , 'Water(%)' , 'Lipid(%)','Protein(%)'};
         line1_sheet1 = horzcat(line1_sheet1);
         xlswrite(xlspath, line1_sheet1, xlsSESheet);
-        load('phantom_new-2.mat')
+        load('phantom.mat')
 
         for  k = 1:length(groupEn)
             energy = groupEn(k);
