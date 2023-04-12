@@ -1,4 +1,4 @@
-function [ phantom ] = Copy_of_newPhantomGene(n_vessels, r_vessels, m_vessels )
+function [ phantom ] = newPhantomGene(n_vessels, r_vessels, m_vessels )
 %NEWPHANTOMGENE creates an IndexedPhantom object, with vessels, for QRM phantom CT Simulation.
 %
 %   newPhantomGene creates an IndexedPhantom object with equidistance
@@ -20,15 +20,18 @@ function [ phantom ] = Copy_of_newPhantomGene(n_vessels, r_vessels, m_vessels )
 %   OUTPUTS:
 %
 %   phantom                       IndexedPhantom to be used for simulation.
-%
-%   REFERENCE:    newPhantomGene
+%    
+%   REFERENCE:    GeneratePhantomCirc
+%   AUTHOR:       Xingshuo Xiao
+%   DATE CREATED: 12-Nov-2021
+%    
 %   AUTHOR:       Shu Nie
-%   DATE CREATED: 11-Nov-2022
+%   DATE UPDATED: 11-Nov-2022
 %   add marrow to phantom
 % 
 
-% im_phantom = TiffStackRead('thorax_resized4x.tif');
-load('phantom_new-2.mat');
+% im_phantom = TiffStackRead('thorax_resized4x.tif'); % previous phantom
+load('phantom_with_marrow.mat'); % new phantom with marrow
 im_phantom = phantom_new;
 im_size = size(im_phantom);
 element_size = .01; %cm/px;
