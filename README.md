@@ -8,7 +8,7 @@ uci-research-toolbox (imtool, imtool3D to visulize images)
 
 **Already uploaded:**
 
-Calcification phantom calibration/validation scan scripts, Water lipid protein phantom script
+Calcification phantom calibration/validation scan scripts, Water lipid protein phantom scan script
 
 Phantom generation files (original phantom image, generate inserts)
 
