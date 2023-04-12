@@ -1,4 +1,4 @@
-%% Increase in FAI is because of the loss of lipid content rather than water accumulation.
+% Increase in FAI is because of the loss of lipid content rather than water accumulation.
 % Initialize trials and modes
 modes = {'calibration', 'validation'};
 kvps_sizes_modes = {'energy', 'patient_size'};
@@ -66,21 +66,9 @@ for m = 2:length(modes)
                     rng(j + trials); % Set the seed for validation dataset
                 end
 
-                %  Water weight percentage range: 4.4 - 36.1 g/100 g
+                % Water weight percentage range: 4.4 - 36.1 g/100 g
                 % Lipid weight percentage range: 61.0 - 94.1 g/100 g
                 % Protein weight percentage range: 1.0 - 6.5 g/100 g
-                % Constants
-                lipid_density = 0.92;
-                water_density = 1.00;
-                protein_density = 1.35;
-
-                % Initial values
-                initial_water_mass = 20.2; % g
-                initial_lipid_mass = 76.7; % g
-                initial_protein_mass = 3.1; % g
-
-                % Calculate total mass
-                total_mass = initial_water_mass + initial_lipid_mass + initial_protein_mass;
 
                 % Generate 10 random lipid weight fractions from 61 to 94.1
                 lipid_weight_fractions = 61 + (94.1 - 61) .* rand(10, 1);
