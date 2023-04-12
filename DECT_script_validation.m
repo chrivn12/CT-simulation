@@ -11,7 +11,7 @@ waitbar(0,f,'generating simulation...')
 for i = 1:3
     m = {['HA ',int2str(m_vessels(i,1)),'mg.ml'], ['HA ',int2str(m_vessels(i,3)),'mg.ml'],['HA ',int2str(m_vessels(i,2)),'mg.ml']}; % create mixtures
     for s = phantom_size
-        p = newPhantomGene(n_vessels,r_vessels,m);
+        p = PhantomGene(n_vessels,r_vessels,m);
         p = addFatRing(p,s,s-10);
         if s == 40
             exposure = 5.4;
