@@ -9,7 +9,7 @@ waitbar(0,f,'generating calibration phantom simulation...')
 for i = 1:numel(m_vessels)
     m = ['HA ',int2str(m_vessels(i)),'mg.ml'];
     for LAT = size
-        rod = Copy_of_rodGene(1, m);
+        rod = rodGene(1, m);
         rod = addFatRing(rod,LAT,LAT-10);
         if LAT == 35
             exposure = 25;
