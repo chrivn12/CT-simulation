@@ -1,4 +1,4 @@
-function [phantom] = Copy_of_rodGene(r,m )
+function [phantom] = rodGene(r,m )
 %rodGene creates an IndexedPhantom object, with only one calibration rod, for QRM phantom CT Simulation.
 %
 %   rodGene creates an IndexedPhantom object with equidistance
