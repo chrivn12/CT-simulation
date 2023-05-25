@@ -13,7 +13,7 @@ initial_protein_mass = 3.1; % g
 total_mass = initial_water_mass + initial_lipid_mass + initial_protein_mass;
 
 for m = 1:length(modes)
-    for n = 1:1 %length(kvps_sizes_modes)
+    for n = 1:length(kvps_sizes_modes)
         % Start trials
         mode = modes{m};
         kvps_sizes = kvps_sizes_modes{n};
