@@ -27,7 +27,8 @@ function [phantom] = rodGene(r,m )
 %
 
 % im_phantom = TiffStackRead('thorax_resized4x.tif');
-load('phantom_new-2.mat');
+% load('phantom_new-2.mat');
+load('phantom_with_marrow.mat');
 im_phantom = phantom_new;
 im_size = size(im_phantom);
 element_size = .01; %cm/px;
