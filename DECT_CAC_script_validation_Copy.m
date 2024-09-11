@@ -20,7 +20,6 @@ lipid_weight_fractions = [61; 66; 71]; %lipid weight fractions
 lipid_weight_fractions2 = [73; 78; 82]; 
 lipid_weight_fractions3 = [85; 89; 94];
 
-%fix this actually embarassing code into a loop LOL
 % Calculate corresponding water and protein weight fractions
 water_weight_fractions = (initial_water_mass ./ (total_mass - initial_lipid_mass + lipid_weight_fractions * total_mass / 100)) * 100;
 protein_weight_fractions = (initial_protein_mass ./ (total_mass - initial_lipid_mass + lipid_weight_fractions * total_mass / 100)) * 100;
