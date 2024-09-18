@@ -10,16 +10,15 @@ initial_protein_mass = 3.1; % g
 total_mass = initial_water_mass + initial_lipid_mass + initial_protein_mass;
 
 n_vessels = 3;
-r_vessels = [0.25,0.15,0.05]; %change to all 0.25
+r_vessels = [0.25,0.25, 0.25]; %change to all 0.25
 
 % m_vessels = [15,18,22]; % densities
 % m_vessels2 = [26,29,36];
 % m_vessels3 = [52,59,73];
 
 lipid_weight_fractions = [61; 66; 71]; %lipid weight fractions
-lipid_weight_fractions2 = [73, 78, 82]; 
-lipid_weight_fractions3 = [85, 89, 94];
-
+lipid_weight_fractions2 = [73; 78; 82]; 
+lipid_weight_fractions3 = [85; 89; 94];
 
 % Calculate corresponding water and protein weight fractions
 water_weight_fractions = (initial_water_mass ./ (total_mass - initial_lipid_mass + lipid_weight_fractions * total_mass / 100)) * 100;
@@ -44,8 +43,8 @@ protein_weight_fractions = (initial_protein_mass ./ (total_mass - initial_lipid_
 
 % Calculate volumetric fractions
 water_volumetric_fractions = 100 .* water_weight_fractions ./ water_density ./ (water_weight_fractions ./ water_density + lipid_weight_fractions2 ./ lipid_density + protein_weight_fractions ./ protein_density);
-lipid_volumetric_fractions = 100 .* lipid_weight_fractions ./ lipid_density ./ (water_weight_fractions ./ water_density + lipid_weight_fractions2 ./ lipid_density + protein_weight_fractions ./ protein_density);
-protein_volumetric_fractions = 100 .* protein_weight_fractions2 ./ protein_density ./ (water_weight_fractions ./ water_density + lipid_weight_fractions2 ./ lipid_density + protein_weight_fractions ./ protein_density);
+lipid_volumetric_fractions = 100 .* lipid_weight_fractions2 ./ lipid_density ./ (water_weight_fractions ./ water_density + lipid_weight_fractions2 ./ lipid_density + protein_weight_fractions ./ protein_density);
+protein_volumetric_fractions = 100 .* protein_weight_fractions ./ protein_density ./ (water_weight_fractions ./ water_density + lipid_weight_fractions2 ./ lipid_density + protein_weight_fractions ./ protein_density);
 
 comparray = [water_volumetric_fractions,lipid_volumetric_fractions,protein_volumetric_fractions];
 for i = 1:size(comparray,1)
@@ -83,21 +82,21 @@ waitbar(0,f,'generating simulation...')
 c = 0;
 % m = {['HA ',int2str(m_vessels(1)),'mg.ml'], ['HA ',int2str(m_vessels(3)),'mg.ml'],['HA ',int2str(m_vessels(2)),'mg.ml']}; % create mixtures i think i change this
 for s = phantom_size
-    p = PhantomGene(n_vessels,r_vessels,m);
+    p = PhantomGene(n_vessels,r_vessels,m_vessels);
     p = addFatRing(p,s,s-10);
     if s == 40
         exposure = 5.4;
-        size = 'large';
+        psize = 'large';
     elseif s == 35
         exposure = 2.0;
-        size = 'medium';
+        psize = 'medium';
     else
         exposure = 0.9;
-        size = 'small';
+        psize = 'small';
     end
     
     for energy = kvp
-        name = strcat(int2str(m_vessels(1)), "_", int2str(m_vessels(2)),  "_", int2str(m_vessels(3)),'energy',int2str(energy),size);
+        name = strcat(m_vessels(1), "_", m_vessels(2),  "_", m_vessels(3),'energy',int2str(energy),psize);
 
         % generate 3 same images to simulate the differing noise for each slice.
         I = ToshibaAquilionOne(energy,exposure,p);
@@ -123,21 +122,21 @@ end
 
 % m = {['HA ',int2str(m_vessels2(1)),'mg.ml'], ['HA ',int2str(m_vessels2(3)),'mg.ml'],['HA ',int2str(m_vessels2(2)),'mg.ml']}; % create mixtures
 for s = phantom_size
-    p = PhantomGene(n_vessels,r_vessels,m);
+    p = PhantomGene(n_vessels2,r_vessels,m_vessels2);
     p = addFatRing(p,s,s-10);
     if s == 40
         exposure = 5.4;
-        size = 'large';
+        psize = 'large';
     elseif s == 35
         exposure = 2.0;
-        size = 'medium';
+        psize = 'medium';
     else
         exposure = 0.9;
-        size = 'small';
+        psize = 'small';
     end
     
     for energy = kvp
-        name = strcat(int2str(m_vessels2(1)), "_", int2str(m_vessels2(2)),  "_", int2str(m_vessels2(3)),'energy',int2str(energy),size);
+        name = strcat(m_vessels2(1), "_", m_vessels2(2),  "_", m_vessels2(3),'energy',int2str(energy),psize);
 
         % generate 3 same images to simulate the differing noise for each slice.
         I = ToshibaAquilionOne(energy,exposure,p);
@@ -162,21 +161,21 @@ end
 
 % m = {['HA ',int2str(m_vessels3(1)),'mg.ml'], ['HA ',int2str(m_vessels3(3)),'mg.ml'],['HA ',int2str(m_vessels3(2)),'mg.ml']}; % create mixtures
 for s = phantom_size
-    p = PhantomGene(n_vessels,r_vessels,m);
+    p = PhantomGene(n_vessels3,r_vessels,m_vessels3);
     p = addFatRing(p,s,s-10);
     if s == 40
         exposure = 5.4;
-        size = 'large';
+        psize = 'large';
     elseif s == 35
         exposure = 2.0;
-        size = 'medium';
+        psize = 'medium';
     else
         exposure = 0.9;
-        size = 'small';
+        psize = 'small';
     end
     
     for energy = kvp
-        name = strcat(int2str(m_vessels3(1)), "_", int2str(m_vessels3(2)),  "_", int2str(m_vessels3(3)),'energy',int2str(energy),size);
+        name = strcat(m_vessels3(1), "_", m_vessels3(2),  "_", m_vessels3(3),'energy',int2str(energy),psize);
 
         % generate 3 same images to simulate the differing noise for each slice.
         I = ToshibaAquilionOne(energy,exposure,p);

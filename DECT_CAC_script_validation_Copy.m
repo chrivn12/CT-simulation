@@ -10,7 +10,7 @@ initial_protein_mass = 3.1; % g
 total_mass = initial_water_mass + initial_lipid_mass + initial_protein_mass;
 
 n_vessels = 3;
-r_vessels = [0.25,0.15,0.05]; %change to all 0.25
+r_vessels = [0.25,0.25, 0.25]; %change to all 0.25
 
 % m_vessels = [15,18,22]; % densities
 % m_vessels2 = [26,29,36];
@@ -120,7 +120,7 @@ end
 
 % m = {['HA ',int2str(m_vessels2(1)),'mg.ml'], ['HA ',int2str(m_vessels2(3)),'mg.ml'],['HA ',int2str(m_vessels2(2)),'mg.ml']}; % create mixtures
 for s = phantom_size
-    p = PhantomGene(n_vessels,r_vessels,m_vessels2);
+    p = PhantomGene(n_vessels2,r_vessels,m_vessels2);
     p = addFatRing(p,s,s-10);
     if s == 40
         exposure = 5.4;
@@ -159,7 +159,7 @@ end
 
 % m = {['HA ',int2str(m_vessels3(1)),'mg.ml'], ['HA ',int2str(m_vessels3(3)),'mg.ml'],['HA ',int2str(m_vessels3(2)),'mg.ml']}; % create mixtures
 for s = phantom_size
-    p = PhantomGene(n_vessels,r_vessels,m_vessels3);
+    p = PhantomGene(n_vessels3,r_vessels,m_vessels3);
     p = addFatRing(p,s,s-10);
     if s == 40
         exposure = 5.4;
