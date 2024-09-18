@@ -20,6 +20,10 @@ lipid_weight_fractions = [61; 66; 71]; %lipid weight fractions
 lipid_weight_fractions2 = [73; 78; 82]; 
 lipid_weight_fractions3 = [85; 89; 94];
 
+mvessels = zeros(1,3);
+mvessels2 = zeros(1,3);
+mvessels3 = zeros(1,3);
+
 % Calculate corresponding water and protein weight fractions
 water_weight_fractions = (initial_water_mass ./ (total_mass - initial_lipid_mass + lipid_weight_fractions * total_mass / 100)) * 100;
 protein_weight_fractions = (initial_protein_mass ./ (total_mass - initial_lipid_mass + lipid_weight_fractions * total_mass / 100)) * 100;
@@ -33,8 +37,6 @@ comparray = [water_volumetric_fractions,lipid_volumetric_fractions,protein_volum
 for i = 1:size(comparray,1)
     m_vessels{i} = ['Water' num2str(comparray(i,1)) 'Lipid' num2str(comparray(i,2)) 'Protein' num2str(comparray(i,3))];
 end
-m_vessels = {m_vessels{:}};
-n_vessels = length(m_vessels);
 
 
 % Calculate corresponding water and protein weight fractions
@@ -50,8 +52,6 @@ comparray = [water_volumetric_fractions,lipid_volumetric_fractions,protein_volum
 for i = 1:size(comparray,1)
     m_vessels2{i} = ['Water' num2str(comparray(i,1)) 'Lipid' num2str(comparray(i,2)) 'Protein' num2str(comparray(i,3))];
 end
-m_vessels2 = {m_vessels2{:}};
-n_vessels2 = length(m_vessels2);
 
 
 % Calculate corresponding water and protein weight fractions
@@ -67,8 +67,6 @@ comparray = [water_volumetric_fractions,lipid_volumetric_fractions,protein_volum
 for i = 1:size(comparray,1)
     m_vessels3{i} = ['Water' num2str(comparray(i,1)) 'Lipid' num2str(comparray(i,2)) 'Protein' num2str(comparray(i,3))];
 end
-m_vessels3 = {m_vessels3{:}};
-n_vessels3 = length(m_vessels3);
 
 
 kvp = [80, 135];
